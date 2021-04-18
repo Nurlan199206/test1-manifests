@@ -34,7 +34,6 @@ jobs:
         env:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
         run: |
-         cd manifests
          ls -l
          kustomize edit set image ${{ steps.meta.outputs.tags }}
          kustomize build -o deployment.yaml
